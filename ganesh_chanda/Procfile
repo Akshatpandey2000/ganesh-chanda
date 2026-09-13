@@ -1,1 +1,1 @@
-web: PYTHONPATH=. gunicorn ganesh_chanda.wsgi:application
+web: PYTHONPATH=ganesh_chanda gunicorn ganesh_chanda.wsgi:application
