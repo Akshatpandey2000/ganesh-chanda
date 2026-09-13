@@ -1,1 +1,1 @@
-web: python check_paths.py
+web: PYTHONPATH=. gunicorn ganesh_chanda.ganesh_chanda.wsgi:application
