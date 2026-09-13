@@ -1,0 +1,60 @@
+{% extends "donors/base.html" %}
+{% block content %}
+<div class="row justify-content-center mt-4">
+  <div class="col-md-6">
+    <div class="form-box shadow-lg">
+      <h2 class="text-center mb-4">Donation Form</h2>
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <!-- Full Name -->
+        <div class="mb-3">
+          <label for="id_full_name" class="form-label">Full Name</label>
+          <input type="text" name="full_name" id="id_full_name" class="form-control" placeholder="Enter your full name">
+        </div>
+
+        <!-- Phone Number -->
+        <div class="mb-3">
+          <label for="id_phone_number" class="form-label">Phone Number</label>
+          <input type="text" name="phone_number" id="id_phone_number" class="form-control" placeholder="Enter your phone number">
+        </div>
+
+        <!-- Amount -->
+        <div class="mb-3">
+          <label for="id_amount" class="form-label">Amount</label>
+          <input type="number" name="amount" id="id_amount" class="form-control" placeholder="Enter donation amount">
+        </div>
+
+        <!-- Screenshot -->
+        <div class="mb-3">
+          <label for="id_screenshot" class="form-label">Screenshot</label>
+          <input type="file" name="screenshot" id="id_screenshot" class="form-control">
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="btn btn-primary w-100">Submit</button>
+      </form>
+
+      <div class="alert alert-info mt-3 text-center">
+        Please transfer your donation to UPI: <b>9876543210@upi</b>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .form-box {
+    background: rgba(255, 255, 255, 0.85); /* ✅ translucent background */
+    border-radius: 12px;
+    padding: 20px;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  .form-box:hover {
+    background: rgba(255, 255, 255, 0.95);
+    transform: scale(1.02);
+  }
+  .form-label {
+    font-weight: 600;
+  }
+</style>
+{% endblock %}

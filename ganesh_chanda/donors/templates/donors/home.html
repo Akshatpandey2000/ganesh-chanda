@@ -1,0 +1,47 @@
+{% extends "donors/base.html" %}
+{% block content %}
+<div class="row justify-content-center mt-4">
+  <!-- Donation Card -->
+  <div class="col-md-4">
+    <div class="card option-card text-center shadow-sm">
+      <div class="card-body">
+        <i class="bi bi-cash-stack display-4 text-success"></i>
+        <h5 class="card-title mt-2">Fill Donation Form</h5>
+        <a href="/donate/" class="btn btn-outline-success">Go</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin Card -->
+  <div class="col-md-4">
+    <div class="card option-card text-center shadow-sm">
+      <div class="card-body">
+        <i class="bi bi-gear-fill display-4 text-primary"></i>
+        <h5 class="card-title mt-2">Admin Panel</h5>
+        <a href="/admin/" class="btn btn-outline-primary">Go</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Translucent background so text is readable */
+  .option-card {
+    background: rgba(255, 255, 255, 0.75); /* ✅ semi-transparent white */
+    border-radius: 12px;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+
+  /* On hover, make background slightly stronger */
+  .option-card:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: scale(1.05);
+  }
+
+  /* Card text styling */
+  .option-card h5 {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+</style>
+{% endblock %}

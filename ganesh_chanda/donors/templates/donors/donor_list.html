@@ -1,0 +1,56 @@
+{% extends "donors/base.html" %}
+{% block content %}
+<h2 class="text-center mb-4">All Donors</h2>
+
+<div class="table-box shadow-lg">
+  <div class="table-responsive">
+    <table class="table table-striped table-hover align-middle">
+      <thead class="table-dark">
+        <tr>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Amount</th>
+          <th>Screenshot</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for donor in donors %}
+        <tr>
+          <td>{{ donor.full_name }}</td>
+          <td>{{ donor.phone_number }}</td>
+          <td>₹{{ donor.amount }}</td>
+          <td>
+            {% if donor.screenshot %}
+              <img src="{{ donor.screenshot.url }}" class="img-fluid rounded shadow-sm" style="max-width:100px;">
+            {% else %}
+              <span class="text-muted">No screenshot</span>
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<style>
+  /* Translucent background for readability */
+  .table-box {
+    background: rgba(255, 255, 255, 0.85); /* ✅ semi-transparent white */
+    border-radius: 12px;
+    padding: 20px;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+
+  /* On hover, background becomes stronger */
+  .table-box:hover {
+    background: rgba(255, 255, 255, 0.95);
+    transform: scale(1.01);
+  }
+
+  /* Table styling */
+  .table th, .table td {
+    vertical-align: middle;
+  }
+</style>
+{% endblock %}
